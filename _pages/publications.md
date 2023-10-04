@@ -1,32 +1,16 @@
 ---
+layout: archive
 title: "Publications"
-layout: gridlay
-sitemap: false
 permalink: /publications/
-years: [2016, 2017, 2018, 2019, 2020, 2021]
+author_profile: true
 ---
 
-<style>
-.jumbotron{
-    padding:3%;
-    padding-bottom:10px;
-    padding-top:10px;
-    margin-top:10px;
-    margin-bottom:30px;
-}
-</style>
+{% if author.googlescholar %}
+  You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
+{% endif %}
 
-<div class="jumbotron">
-### Preprints
-{% bibliography --query @unpublished %}
-</div>
+{% include base_path %}
 
-<div class="jumbotron">
-### Refereed journal articles
-{% bibliography --query @article %}
-</div>
-
-<div class="jumbotron">
-### Refereed conference proceedings
-{% bibliography --query @inproceedings %}
-</div>
+{% for post in site.publications reversed %}
+  {% include archive-single.html %}
+{% endfor %}
